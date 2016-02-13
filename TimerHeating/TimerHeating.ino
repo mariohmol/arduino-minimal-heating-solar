@@ -35,8 +35,8 @@ int motorPin = 7;     //pin to connect relay that actives the motor
 int sensorValue = 0;  // variable to store the value coming from the sensor
 
 //Here we have frequencies and configuration for motor activate per hour
-//0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
-int hourTimes[] = {0,0,0,0,0,0,0,0,0,3,4,5,5,5,5,4,3,0,0,0,0,0,0,0}; //Max times that motor will run in an hour
+//                 0,1,2,3,4,5,6,7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+int hourTimes[] = {0,0,0,0,0,0,0,0,0,3,3,4,5,5,5,4,0,0,0,0,0,0,0}; //Max times that motor will run in an hour
 int rangeAnalogic[] = { 0 , 300, 600, 900, 1023 }; //Set ranges in analogic to change motor start frequency
 float rangeMult[] = { 0 , 0.4, 0.6, 0.8, 1 }; //Ranges that decrease frquency by a potentionmeter
 
@@ -44,7 +44,7 @@ float rangeMult[] = { 0 , 0.4, 0.6, 0.8, 1 }; //Ranges that decrease frquency by
 int lasthour=0; //hour that was in last cycle
 int lastminute=0; //mintes that was in last cycle
 int runtimes=0; //number of times that motor ran in this hour
-long activetime = 60000; //Milli seconds to let motor running
+long activetime = 120000; //Milli seconds to let motor running
 
 //Initialization
 void setup() {
@@ -55,7 +55,7 @@ void setup() {
     digitalWrite(motorPin, HIGH);
     //Set a fix datetime every time it starts
 
-    //setTime(11, 51, 00, 07, 02, 2016); updatetime();
+    //setTime(17, 14, 00, 9, 02, 2016); updatetime();
     
     Serial.println("---Trying to get last saved time");
     EEPROM_readAnything(0, configuration);
